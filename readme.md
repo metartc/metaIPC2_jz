@@ -1,18 +1,32 @@
-libyangpeerconnection7编程指南
+# libyangpeerconnection7
 
-# 依赖文件
+**FILE:libyangpeerconnection7_jz_720.7z**
 
-## 头文件
+libyangpeerconnection7是一个实现P2P媒体传输/数据通道的一个轻量级的webRTC库，基于metaRTC7.0的传输模块构建，支持H264/H265视频编码，通过 P2P 连接为用户提供高效、低延迟的音视频和数据通信。
+
+君正版libyangpeerconnection7可适用于t31/x2000等多个君正SOC系列，助力基于君正webRTC P2P应用快速开发。
+
+# 君正Ingenic metaIPC2 SDK
+
+**FILE:metaIPC2_jz_720.7z**
+
+君正Ingenic metaIPC2.0 sdk基于mqtt通信，基于libyangpeerconnection7开发，支持基于IPC的AI二次开发，支持多路并发，支持浏览器/微信等视频直播远程控制等功能
+
+# **libyangpeerconnection7编程指南**
+
+## 依赖文件
+
+### 头文件
 
 YangPeerConnection7.h
 
-## 库文件
+### 库文件
 
 libyangpeerconnection7.so
 
-# 示例代码
+## 示例代码
 
-## 对象分配与释放
+### 对象分配与释放
 
 YangPeerConnection7* peer = (YangPeerConnection7*)calloc(1, sizeof(YangPeerConnection7));
 
@@ -110,7 +124,7 @@ if(peer){
 
 }
 
-## 交换Candidate
+### 交换Candidate
 
 //通过信令取得对端candidate
 
@@ -122,7 +136,7 @@ static void ipc_onIceCandidate(void* context, int32_t uid,char* sdp){
     //取得candidate 通过信令传到对端
 }
 
-## 回调函数
+### 回调函数
 
 static void ipc_onConnectionStateChange(void* context, int32_t uid,YangRtcConnectionState connectionState){
 
@@ -242,7 +256,7 @@ static void ipc_rtcrecv_receiveMsg(void *user, YangFrame *msgFrame) {
 
 }
 
-## 推流
+### 推流
 
 //YangFrame payload 数据 nb:数据长度 
 
